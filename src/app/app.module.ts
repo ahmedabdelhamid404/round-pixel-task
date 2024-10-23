@@ -9,6 +9,7 @@ import { SelectedFlightComponent } from './bonus/selected-flight/selected-flight
 import { FilterComponent } from './components/flight-result/filter/filter.component';
 import { FlightCardComponent } from './components/flight-result/flight-card/flight-card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 // Materials
 import { MatButtonModule } from '@angular/material/button';
@@ -28,6 +29,7 @@ const MATERIALS = [MatButtonModule];
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     ...MATERIALS,
   ],
   providers: [],

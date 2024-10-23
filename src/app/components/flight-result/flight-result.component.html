@@ -1,1 +1,19 @@
-<p>flight-result works!</p>
+<div class="container">
+  <section
+    class="card"
+    *ngFor="
+      let flight of (filteredFlights | async)?.airItineraries;
+      let i = index
+    "
+  >
+    <section class="card__header"></section>
+    <section class="card__body">Body</section>
+    <section
+      *ngIf="flight.allJourney.flights[0].flightDTO.length > 1"
+      class="card__footer"
+    >
+      + {{ flight.allJourney.flights[0].flightDTO.length }} more options at the
+      same price
+    </section>
+  </section>
+</div>
