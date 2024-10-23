@@ -1,0 +1,50 @@
+// break points
+$breakpoint-xs: 480px;
+$breakpoint-sm: 768px;
+$breakpoint-md: 1024px;
+$breakpoint-lg: 1280px;
+$breakpoint-xl: 1440px;
+
+// Color variables
+$primary: var(--primary);
+$accent: var(--accent);
+$secondary: var(--secondary);
+$background: var(--background);
+$text: var(--text);
+$muted: var(--muted);
+$success: var(--success);
+$info: var(--info);
+$warning: var(--warning);
+$danger: var(--danger);
+
+$sys-font: "Roboto", "Georgia", "serif";
+
+.inter-base {
+  font-family: $sys-font;
+  font-optical-sizing: auto;
+}
+
+.inter-300 {
+  @extend .inter-base;
+  font-weight: 300;
+}
+
+.inter-400 {
+  @extend .inter-base;
+  font-weight: 400;
+}
+
+.inter-500 {
+  @extend .inter-base;
+  font-weight: 500;
+}
+
+.inter-600 {
+  @extend .inter-base;
+  font-weight: 600;
+}
+
+.inter-700 {
+  @extend .inter-base;
+  font-weight: 700;
+}

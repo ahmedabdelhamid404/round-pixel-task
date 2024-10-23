@@ -1,0 +1,16 @@
+@import "src/styles/variables";
+
+.container {
+  background-image: url("/assets/images/home_bg.jpg");
+  background-position: right;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+}
+
+.test {
+  color: $primary;
+}

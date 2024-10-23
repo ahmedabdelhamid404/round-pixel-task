@@ -1,0 +1,6 @@
+.container {
+  padding-inline: 30px;
+  @include respond-to($breakpoint-sm) {
+    padding-inline: 12px;
+  }
+}
