@@ -1,0 +1,32 @@
+@import "src/styles/variables";
+
+.card {
+  border-radius: 4px;
+  overflow: hidden;
+  color: text;
+
+  &__header,
+  &__body {
+    padding-block: 4px;
+    padding-inline: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__header {
+    font-size: 14px;
+  }
+
+  &__body {
+    font-size: 12px;
+  }
+
+  &__footer {
+    background-color: $secondary;
+    padding-block: 4px;
+    font-size: 10px;
+    font-weight: 400;
+    text-align: center;
+  }
+}
