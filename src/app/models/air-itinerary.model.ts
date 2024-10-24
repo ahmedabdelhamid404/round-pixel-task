@@ -29,7 +29,7 @@ interface IBaggageInformation {
   landCity: string;
 }
 
-interface IItinTotalFare {
+export interface IItinTotalFare {
   amount: number;
   currencyCode: string;
   fareAmount: number;

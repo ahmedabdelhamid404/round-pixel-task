@@ -5,6 +5,17 @@
 
 // Materials
 @import "styles/materials/buttons";
+@import "styles/materials/drawer";
+
+* {
+  color: $text;
+}
+
+button {
+  span {
+    color: $background;
+  }
+}
 
 html,
 body {

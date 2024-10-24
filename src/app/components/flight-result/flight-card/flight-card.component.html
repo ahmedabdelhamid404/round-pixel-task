@@ -1,1 +1,68 @@
-<p>flight-card works!</p>
+<section class="card">
+  <section class="card__header">
+    <div class="card__header__trip-airline">
+      <div class="logo">
+        <img
+          [src]="airItinerary.allJourney.flights[0].flightAirline.airlineLogo"
+          [alt]="airItinerary.allJourney.flights[0].flightAirline.airlineName"
+        />
+      </div>
+      <div class="info">
+        <p class="info__name">
+          {{ airItinerary.allJourney.flights[0].flightAirline.airlineName }}
+        </p>
+        <p class="info__code">
+          {{ airItinerary.allJourney.flights[0].flightAirline.airlineCode }} -
+          {{ airItinerary.allJourney.flights[0].elapsedTime }}
+        </p>
+      </div>
+    </div>
+    <div class="card__header__trip-line">
+      <div class="department">
+        <p>{{ airItinerary.deptDate | date : "HH:MM" }}</p>
+        <p class="city">{{ airItinerary.baggageInformation[0].deptCity }}</p>
+      </div>
+      <div class="trip">
+        <div
+          *ngFor="
+            let stop of [].constructor(
+              airItinerary.allJourney.flights[0].stopsNum
+            )
+          "
+          class="stop"
+        ></div>
+      </div>
+      <div class="landing">
+        <p>{{ airItinerary.arrivalDate | date : "HH:MM" }}</p>
+        <p class="city">{{ airItinerary.baggageInformation[0].landCity }}</p>
+      </div>
+    </div>
+    <div class="card__header__trip-hours">
+      <span>{{
+        airItinerary.deptDate | flightDuration : airItinerary.arrivalDate
+      }}</span>
+    </div>
+    <div class="card__header__trip-price">
+      <span>{{
+        airItinerary.itinTotalFare
+          | calculateTotalFlightPrice
+          | currency : airItinerary.itinTotalFare.currencyCode
+      }}</span>
+    </div>
+    <button mat-flat-button color="primary">Book Now</button>
+  </section>
+  <section class="card__body">
+    <a href="https://www.github.com" target="_blank" class="card__body__details"
+      >Flight Details</a
+    >
+
+    <img class="card__body__share" src="assets/images/icons8-share.svg" />
+  </section>
+  <section
+    *ngIf="airItinerary.allJourney.flights[0].flightDTO.length > 1"
+    class="card__footer"
+  >
+    + {{ airItinerary.allJourney.flights[0].flightDTO.length }} more options at
+    the same price
+  </section>
+</section>

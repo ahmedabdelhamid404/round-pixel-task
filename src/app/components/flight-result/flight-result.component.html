@@ -1,19 +1,31 @@
-<div class="container">
-  <section
-    class="card"
-    *ngFor="
-      let flight of (filteredFlights | async)?.airItineraries;
-      let i = index
-    "
-  >
-    <section class="card__header"></section>
-    <section class="card__body">Body</section>
-    <section
-      *ngIf="flight.allJourney.flights[0].flightDTO.length > 1"
-      class="card__footer"
+<div class="content">
+  <mat-sidenav-container class="filters-sidenav">
+    <mat-sidenav
+      #sidenav
+      mode="over"
+      fixedInViewport="true"
+      class="filters-sidenav__content"
     >
-      + {{ flight.allJourney.flights[0].flightDTO.length }} more options at the
-      same price
-    </section>
-  </section>
+      <!-- [position]="language ? 'end' : 'start'" -->
+      <app-filter
+        [currencyCode]="searchCurrencyCode"
+        (close)="patchSideNav = $event"
+      ></app-filter>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="filters-sidenav__header">
+      <span class="sidenav-toggle" (click)="sidenav.toggle()">
+        <img src="assets/images/icons8-filter.png" alt="filter" />
+        Filters
+      </span>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+  <div class="container">
+    <ng-container
+      *ngFor="let flight of (filteredFlights | async)?.airItineraries"
+    >
+      <app-flight-card [airItinerary]="flight"></app-flight-card>
+    </ng-container>
+  </div>
 </div>
