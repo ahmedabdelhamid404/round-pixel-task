@@ -24,9 +24,9 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { LoadingComponent } from './shared/loading/loading.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 import * as fromServices from '@app/services';
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 const MATERIALS = [
   MatButtonModule,

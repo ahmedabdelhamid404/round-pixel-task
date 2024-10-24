@@ -16,7 +16,6 @@ export class AppComponent {
 
   constructor() {
     this.themeService.theme.pipe(untilDestroyed(this)).subscribe((theme) => {
-      console.log(theme);
       document.body.setAttribute('theme', theme);
     });
   }
