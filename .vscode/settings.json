@@ -3,6 +3,7 @@
         "root store flights service",
         "flights screen",
         "flights-service & theme enhancement",
-        "general fixes"
+        "general fixes",
+        "fixing base href"
     ]
 }
