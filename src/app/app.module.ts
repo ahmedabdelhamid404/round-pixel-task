@@ -13,19 +13,28 @@ import { HttpClientModule } from '@angular/common/http';
 import { CalculateTotalFlightPricePipe } from './pipes/calculate-total-flight-price.pipe';
 import { FlightDurationPipe } from './pipes/flight-duration.pipe';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Materials
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSliderModule } from '@angular/material/slider';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { LoadingComponent } from './shared/loading/loading.component';
+
+import * as fromServices from '@app/services';
 
 const MATERIALS = [
   MatButtonModule,
   MatSidenavModule,
   MatIconModule,
   MatSliderModule,
+  MatRadioModule,
+  MatInputModule,
+  MatFormFieldModule,
 ];
 
 @NgModule({
@@ -39,6 +48,7 @@ const MATERIALS = [
     CalculateTotalFlightPricePipe,
     FlightDurationPipe,
     NavbarComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +59,7 @@ const MATERIALS = [
     FormsModule,
     ...MATERIALS,
   ],
-  providers: [],
+  providers: [...fromServices.SERVICES],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

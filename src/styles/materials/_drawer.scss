@@ -1,0 +1,5 @@
+@import "src/styles/variables";
+
+.mat-drawer-backdrop.mat-drawer-shown {
+  background-color: $background;
+}

@@ -23,11 +23,12 @@ body {
 }
 body {
   margin: 0;
+  background-color: $background;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  &.dark {
+  &[theme="dark"] {
     @include darken();
   }
-  &.light {
+  &[theme="light"] {
     @include lighten();
   }
 }
