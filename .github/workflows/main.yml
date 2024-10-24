@@ -1,0 +1,30 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build Angular project
+      run: npm run build --prod
+
+    - name: Deploy to GitHub Pages
+      run: npx angular-cli-ghpages --dir=dist/online-travel
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
