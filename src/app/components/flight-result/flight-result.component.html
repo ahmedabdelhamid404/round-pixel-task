@@ -1,1 +1,48 @@
-<p>flight-result works!</p>
+<div class="content">
+  <mat-sidenav-container class="filters-sidenav">
+    <mat-sidenav
+      #sidenav
+      mode="over"
+      fixedInViewport="true"
+      class="filters-sidenav__content"
+    >
+      <app-filter
+        [currencyCode]="searchCurrencyCode"
+        [airLines]="airLines"
+        (close)="patchSideNav = $event"
+        (filter)="filterFlights($event)"
+      ></app-filter>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="filters-sidenav__header">
+      <span class="sidenav-toggle" (click)="sidenav.toggle()">
+        <img src="assets/images/icons8-filter.png" alt="filter" />
+        Filters
+      </span>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+  <div class="container">
+    <ng-container
+      *ngIf="
+        ((filteredFlights$ | async)?.airItineraries)!.length > 0 &&
+        !(isLoading$ | async)
+      "
+    >
+      <app-flight-card
+        *ngFor="let flight of (filteredFlights$ | async)?.airItineraries"
+        [airItinerary]="flight"
+      ></app-flight-card>
+    </ng-container>
+
+    <ng-container
+      *ngIf="((filteredFlights$ | async)?.airItineraries)!.length == 0"
+    >
+      <img class="not-found" src="assets/images/no-data.gif" alt="no data" />
+    </ng-container>
+
+    <ng-container *ngIf="isLoading$ | async">
+      <app-loading></app-loading>
+    </ng-container>
+  </div>
+</div>

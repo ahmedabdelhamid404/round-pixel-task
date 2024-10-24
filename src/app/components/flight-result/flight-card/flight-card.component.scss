@@ -1,0 +1,109 @@
+@import "src/styles/variables";
+@import "src/styles/responsive";
+
+.card {
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: $card;
+
+  &__header,
+  &__body {
+    padding-block: 18px;
+    padding-inline: 16px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    @include respond-to($breakpoint-md) {
+      flex-direction: column;
+    }
+    justify-content: space-between;
+  }
+
+  &__header {
+    font-size: 14px;
+    border-bottom: 1px solid $secondary;
+    &__trip-airline {
+      min-width: 25%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      @include respond-to($breakpoint-md) {
+        justify-content: center;
+      }
+      gap: 15px;
+      .info {
+        p {
+          margin-bottom: 0px;
+        }
+        &__name {
+          font-weight: bold;
+        }
+        &__code {
+          font-weight: lighter;
+          font-size: 10px;
+        }
+      }
+      img {
+        width: 35px;
+        height: 35px;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+
+    &__trip-hours {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      gap: 4px;
+      span {
+        text-align: center;
+      }
+    }
+
+    &__trip-line {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      .trip {
+        height: 1px;
+        width: 100px;
+        background-color: $secondary;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        .stop {
+          width: 8px;
+          height: 8px;
+          background-color: $secondary;
+          border-radius: 50%;
+        }
+      }
+      .city {
+        font-weight: lighter;
+        font-size: 10px;
+      }
+      p {
+        margin-bottom: 0px;
+      }
+    }
+  }
+
+  &__body {
+    font-size: 12px;
+    &__share {
+      width: 20px;
+      cursor: pointer;
+    }
+  }
+
+  &__footer {
+    background-color: $secondary;
+    padding-block: 4px;
+    font-size: 10px;
+    font-weight: 400;
+    text-align: center;
+    cursor: pointer;
+  }
+}

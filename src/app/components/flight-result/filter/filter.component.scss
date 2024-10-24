@@ -1,0 +1,86 @@
+@import "src/styles/variables";
+@import "src/styles/responsive";
+
+.content {
+  padding-inline: 15px;
+  padding-block: 15px;
+  min-width: 40vw;
+  @include respond-to($breakpoint-sm) {
+    min-width: calc(100vw - 45px);
+  }
+
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .filter {
+    &__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-block: 10px;
+      border-bottom: 1px solid $secondary;
+      margin-bottom: 20px;
+      &__title {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        img {
+          width: 20px;
+        }
+      }
+      &__close {
+        cursor: pointer;
+        img {
+          width: 20px;
+        }
+      }
+    }
+
+    &__price {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-block: 10px;
+      border-bottom: 1px solid $secondary;
+      margin-bottom: 20px;
+      label,
+      span {
+        align-self: flex-start;
+      }
+      &__slider {
+        width: 80%;
+      }
+    }
+
+    &__airline {
+      padding-block: 10px;
+      border-bottom: 1px solid $secondary;
+      margin-bottom: 20px;
+    }
+
+    &__search {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      label {
+        align-self: flex-start;
+      }
+      input {
+        background: none;
+        outline: 0;
+        border-radius: 4px;
+        height: 40px;
+        width: 80%;
+        border: 1px solid $accent;
+        font-size: 0.9rem;
+        padding: 8px 15px;
+      }
+      .error {
+        margin-top: 5px;
+        color: $accent;
+      }
+    }
+  }
+}

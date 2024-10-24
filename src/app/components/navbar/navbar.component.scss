@@ -1,0 +1,26 @@
+@import "src/styles/variables";
+
+nav {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  padding-inline: 20px;
+  background-color: rgba($color: #000000, $alpha: 0.5);
+  z-index: 999;
+  &__theme {
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .logo {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 1px solid $accent;
+  }
+}

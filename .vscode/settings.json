@@ -1,0 +1,6 @@
+{
+    "conventionalCommits.scopes": [
+        "root store flights service",
+        "flights screen"
+    ]
+}

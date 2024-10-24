@@ -1,0 +1,19 @@
+<nav class="nav">
+  <div class="nav__logo">
+    <img
+      class="logo"
+      src="assets/images/round-pixel-logo.png"
+      alt="round-pixels"
+    />
+  </div>
+  <div class="nav__theme" (click)="toggleTheme()">
+    <img
+      [src]="
+        currentTheme == 'light'
+          ? 'assets/images/icons8-moon.png'
+          : 'assets/images/icons8-sun.svg'
+      "
+      alt="theme-icon"
+    />
+  </div>
+</nav>

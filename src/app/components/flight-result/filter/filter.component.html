@@ -1,1 +1,45 @@
-<p>filter works!</p>
+<div class="content">
+  <header class="filter__header">
+    <div class="filter__header__title">
+      <img src="assets/images/icons8-filter.png" alt="filters" />
+      <span>Filters</span>
+    </div>
+    <div class="filter__header__close" (click)="close.emit(true)">
+      <img src="assets/images/icons8-close.svg" alt="close" />
+    </div>
+  </header>
+  <section class="filter__price">
+    <label>Price Range</label>
+    <span
+      >{{ minPrice.value | currency : currencyCode }} -
+      {{ maxPrice.value | currency : currencyCode }}</span
+    >
+    <mat-slider
+      class="filter__price__slider"
+      [min]="minPriceValue"
+      [max]="maxPriceValue"
+      step="100"
+    >
+      <input [formControl]="minPrice" matSliderStartThumb />
+      <input [formControl]="maxPrice" matSliderEndThumb />
+    </mat-slider>
+  </section>
+  <section class="filter__airline">
+    <label>Airline</label>
+    <div>
+      <mat-radio-group [formControl]="airLine">
+        <mat-radio-button value="All">All Airlines</mat-radio-button>
+        <div *ngFor="let item of airLines">
+          <mat-radio-button [value]="item">{{ item }}</mat-radio-button>
+        </div>
+      </mat-radio-group>
+    </div>
+  </section>
+  <section class="filter__search">
+    <label>AirPort Name</label>
+    <input [formControl]="airportName" placeholder="Search Airport Name" />
+    <mat-hint class="error" *ngIf="airPortNameRegexValidation"
+      >Only English Characters allowed</mat-hint
+    >
+  </section>
+</div>
