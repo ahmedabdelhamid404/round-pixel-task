@@ -26,6 +26,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { LoadingComponent } from './shared/loading/loading.component';
 
 import * as fromServices from '@app/services';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 const MATERIALS = [
   MatButtonModule,
@@ -59,7 +60,13 @@ const MATERIALS = [
     FormsModule,
     ...MATERIALS,
   ],
-  providers: [...fromServices.SERVICES],
+  providers: [
+    ...fromServices.SERVICES,
+    {
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
