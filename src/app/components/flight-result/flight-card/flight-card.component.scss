@@ -52,6 +52,16 @@
       }
     }
 
+    &__trip-hours {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      gap: 4px;
+      span {
+        text-align: center;
+      }
+    }
+
     &__trip-line {
       display: flex;
       align-items: center;

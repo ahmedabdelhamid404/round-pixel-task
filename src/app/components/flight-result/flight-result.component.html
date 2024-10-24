@@ -6,10 +6,11 @@
       fixedInViewport="true"
       class="filters-sidenav__content"
     >
-      <!-- [position]="language ? 'end' : 'start'" -->
       <app-filter
         [currencyCode]="searchCurrencyCode"
+        [airLines]="airLines"
         (close)="patchSideNav = $event"
+        (filter)="filterFlights($event)"
       ></app-filter>
     </mat-sidenav>
 
@@ -23,9 +24,25 @@
 
   <div class="container">
     <ng-container
-      *ngFor="let flight of (filteredFlights | async)?.airItineraries"
+      *ngIf="
+        ((filteredFlights$ | async)?.airItineraries)!.length > 0 &&
+        !(isLoading$ | async)
+      "
     >
-      <app-flight-card [airItinerary]="flight"></app-flight-card>
+      <app-flight-card
+        *ngFor="let flight of (filteredFlights$ | async)?.airItineraries"
+        [airItinerary]="flight"
+      ></app-flight-card>
+    </ng-container>
+
+    <ng-container
+      *ngIf="((filteredFlights$ | async)?.airItineraries)!.length == 0"
+    >
+      <img class="not-found" src="assets/images/no-data.gif" alt="no data" />
+    </ng-container>
+
+    <ng-container *ngIf="isLoading$ | async">
+      <app-loading></app-loading>
     </ng-container>
   </div>
 </div>

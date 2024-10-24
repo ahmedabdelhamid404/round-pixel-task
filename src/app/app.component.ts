@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 
+import * as fromServices from '@app/services';
+
+@UntilDestroy()
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,8 +12,12 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent {
   title = 'online-travel';
 
-  // initialize the theme with light theme
+  themeService = inject(fromServices.ThemeService);
+
   constructor() {
-    document.body.classList.add('light');
+    this.themeService.theme.pipe(untilDestroyed(this)).subscribe((theme) => {
+      console.log(theme);
+      document.body.setAttribute('theme', theme);
+    });
   }
 }

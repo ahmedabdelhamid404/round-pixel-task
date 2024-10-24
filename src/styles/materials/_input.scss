@@ -1,0 +1,6 @@
+@import "src/styles/variables";
+
+::ng-deep .mat-mdc-text-field-wrapper:not(.mdc-text-field--focused) {
+  border: 2px solid $accent;
+  border-radius: 4px;
+}

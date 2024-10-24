@@ -41,6 +41,9 @@
       <span>{{
         airItinerary.deptDate | flightDuration : airItinerary.arrivalDate
       }}</span>
+      <span *ngIf="airItinerary.allJourney.flights[0].stopsNum === 0">
+        {{ "Direct" }}
+      </span>
     </div>
     <div class="card__header__trip-price">
       <span>{{
