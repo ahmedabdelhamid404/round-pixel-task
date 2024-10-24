@@ -45,7 +45,7 @@
                 }
               ],
               "outputHashing": "all",
-              "baseHref": "/"
+              "baseHref": "/round-pixel-task/"
             },
             "development": {
               "buildOptimizer": false,
