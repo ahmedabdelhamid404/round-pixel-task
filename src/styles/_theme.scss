@@ -5,6 +5,7 @@ $primary-light: #3f51b5; // Material Blue (primary)
 $accent-light: #e91e63; // Material Pink (accent)
 $secondary-light: #607d8b; // Blue-grey (secondary)
 $background-light: #f5f5f5; // Light grey background
+$card-light: #e0e0e0; // Light grey background
 $text-light: #212121; // Dark text
 $muted-light: #757575; // Muted grey for less prominent text
 $success-light: #4caf50; // Bright green (success)
@@ -17,6 +18,7 @@ $primary-dark: #303f9f; // Darker blue for primary
 $accent-dark: #c2185b; // Darker pink for accent
 $secondary-dark: #455a64; // Darker blue-grey for secondary
 $background-dark: #121212; // Very dark background
+$card-dark: #1e1e1e; // Very dark background
 $text-dark: #e0e0e0; // Light grey text
 $muted-dark: #9e9e9e; // Muted grey for less prominent text
 $success-dark: #388e3c; // Darker green for success
@@ -30,6 +32,7 @@ $danger-dark: #d32f2f; // Darker red for error/danger
   --accent: #{$accent-light};
   --secondary: #{$secondary-light};
   --background: #{$background-light};
+  --card: #{$card-light};
   --text: #{$text-light};
   --muted: #{$muted-light};
   --success: #{$success-light};
@@ -38,12 +41,12 @@ $danger-dark: #d32f2f; // Darker red for error/danger
   --danger: #{$danger-light};
 }
 
-// mixin to transfer root variables to darks
 @mixin darken {
   --primary: #{$primary-dark};
   --accent: #{$accent-dark};
   --secondary: #{$secondary-dark};
   --background: #{$background-dark};
+  --card: #{$card-dark};
   --text: #{$text-dark};
   --muted: #{$muted-dark};
   --success: #{$success-dark};

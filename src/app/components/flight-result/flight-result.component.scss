@@ -1,32 +1,39 @@
 @import "src/styles/variables";
 
-.card {
-  border-radius: 4px;
-  overflow: hidden;
-  color: text;
+.content {
+  margin-top: 50px;
+  padding-block: 15px;
+  background-color: $background;
+}
 
-  &__header,
-  &__body {
-    padding-block: 4px;
-    padding-inline: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
 
+.mat-drawer-container {
+  z-index: 99999;
+}
+
+.filters-sidenav {
   &__header {
-    font-size: 14px;
+    background-color: $background;
+    padding-block: 15px;
+    .sidenav-toggle {
+      width: fit-content;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      // text-decoration: underline;
+      padding-inline: 30px;
+      img {
+        width: 15px;
+      }
+    }
   }
-
-  &__body {
-    font-size: 12px;
-  }
-
-  &__footer {
-    background-color: $secondary;
-    padding-block: 4px;
-    font-size: 10px;
-    font-weight: 400;
-    text-align: center;
+  &__content {
+    background-color: $background;
   }
 }

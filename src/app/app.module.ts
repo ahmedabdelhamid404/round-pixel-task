@@ -10,11 +10,23 @@ import { FilterComponent } from './components/flight-result/filter/filter.compon
 import { FlightCardComponent } from './components/flight-result/flight-card/flight-card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { CalculateTotalFlightPricePipe } from './pipes/calculate-total-flight-price.pipe';
+import { FlightDurationPipe } from './pipes/flight-duration.pipe';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 // Materials
 import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSliderModule } from '@angular/material/slider';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-const MATERIALS = [MatButtonModule];
+const MATERIALS = [
+  MatButtonModule,
+  MatSidenavModule,
+  MatIconModule,
+  MatSliderModule,
+];
 
 @NgModule({
   declarations: [
@@ -24,12 +36,17 @@ const MATERIALS = [MatButtonModule];
     SelectedFlightComponent,
     FilterComponent,
     FlightCardComponent,
+    CalculateTotalFlightPricePipe,
+    FlightDurationPipe,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
     ...MATERIALS,
   ],
   providers: [],
