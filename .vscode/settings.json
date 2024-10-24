@@ -1,6 +1,7 @@
 {
     "conventionalCommits.scopes": [
         "root store flights service",
-        "flights screen"
+        "flights screen",
+        "flights-service & theme enhancement"
     ]
 }
