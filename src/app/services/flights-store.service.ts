@@ -11,7 +11,7 @@ export class FlightsStoreService {
 
   // read flights from the json file method
   readFlights() {
-    return this.http.get<fromModels.IFlightsResponse>('assets/response.json');
+    return this.http.get<fromModels.IFlightsResponse>('./assets/response.json');
   }
 
   // filter flights by airline name
